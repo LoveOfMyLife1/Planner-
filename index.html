@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seven Habits Weekly Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Seven Habits Weekly Planner</h1>
+      <p class="subtitle">Single-user local planner focused on weekly priorities and daily execution.</p>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <h2>Getting Started</h2>
+        <p>Use demo data to instantly preview a realistic weekly plan and daily schedule.</p>
+        <div class="inline-actions">
+          <button id="loadDemoData">Load Demo Week</button>
+          <button id="clearAllData" class="secondary">Clear All Planner Data</button>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Seven Habits Weekly Planning</h2>
+        <div class="grid two-col">
+          <label>
+            Personal Mission Focus
+            <textarea id="missionFocus" rows="2" placeholder="What matters most this week?"></textarea>
+          </label>
+          <label>
+            Roles This Week
+            <textarea id="rolesFocus" rows="2" placeholder="Example: Parent, Leader, Learner"></textarea>
+          </label>
+        </div>
+        <div class="grid two-col">
+          <label>
+            Quadrant II Priorities
+            <textarea id="q2Focus" rows="2" placeholder="Important, not urgent priorities"></textarea>
+          </label>
+          <label>
+            Weekly Reflection Prompt
+            <textarea id="reflectionPrompt" rows="2" placeholder="How will you stay proactive this week?"></textarea>
+          </label>
+        </div>
+        <button id="saveHabits">Save Weekly Focus</button>
+      </section>
+
+      <section class="card">
+        <h2>Weekly Tasks</h2>
+        <form id="weeklyTaskForm" class="grid three-col">
+          <label>
+            Task
+            <input id="weeklyTaskTitle" required maxlength="120" placeholder="Plan quarterly review" />
+          </label>
+          <label>
+            Day
+            <select id="weeklyTaskDay" required>
+              <option value="">Select day</option>
+              <option>Sunday</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+            </select>
+          </label>
+          <label>
+            Priority
+            <select id="weeklyTaskPriority">
+              <option>High</option>
+              <option selected>Medium</option>
+              <option>Low</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button type="submit">Add Weekly Task</button>
+          </div>
+        </form>
+        <button id="addUnscheduled" class="secondary">Add as Unscheduled Big Rock</button>
+
+        <div id="weeklyTaskList" class="stack"></div>
+      </section>
+
+      <section class="card">
+        <h2>Daily Tasks (Synced from Weekly Plan)</h2>
+        <label>
+          Select Day
+          <select id="dailyDaySelect">
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+        </label>
+        <div id="dailyTaskList" class="stack"></div>
+      </section>
+
+      <section class="card">
+        <h2>Daily Schedule Events</h2>
+        <form id="eventForm" class="grid four-col">
+          <label>
+            Event
+            <input id="eventTitle" required maxlength="120" placeholder="Team sync" />
+          </label>
+          <label>
+            Day
+            <select id="eventDay" required>
+              <option>Sunday</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+            </select>
+          </label>
+          <label>
+            Start Time
+            <select id="eventStart"></select>
+          </label>
+          <label>
+            End Time
+            <select id="eventEnd"></select>
+          </label>
+          <div class="form-actions">
+            <button type="submit">Add Event</button>
+          </div>
+        </form>
+        <div id="eventWarnings" class="warnings"></div>
+        <div id="eventList" class="stack"></div>
+      </section>
+
+      <section class="card">
+        <h2>Copy for OneNote</h2>
+        <div class="grid two-col">
+          <div>
+            <button id="copyWeekly">Copy Weekly Plan</button>
+            <pre id="weeklyExport" class="export"></pre>
+          </div>
+          <div>
+            <button id="copyDaily">Copy Daily Plan</button>
+            <pre id="dailyExport" class="export"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
