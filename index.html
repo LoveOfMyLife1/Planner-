@@ -1,156 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seven Habits Weekly Planner</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Seven Habits Weekly Planner</h1>
-      <p class="subtitle">Single-user local planner focused on weekly priorities and daily execution.</p>
-    </header>
-
-    <main>
-
-      <section class="card">
-        <h2>Getting Started</h2>
-        <p>Use demo data to instantly preview a realistic weekly plan and daily schedule.</p>
-        <div class="inline-actions">
-          <button id="loadDemoData">Load Demo Week</button>
-          <button id="clearAllData" class="secondary">Clear All Planner Data</button>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Seven Habits Weekly Planning</h2>
-        <div class="grid two-col">
-          <label>
-            Personal Mission Focus
-            <textarea id="missionFocus" rows="2" placeholder="What matters most this week?"></textarea>
-          </label>
-          <label>
-            Roles This Week
-            <textarea id="rolesFocus" rows="2" placeholder="Example: Parent, Leader, Learner"></textarea>
-          </label>
-        </div>
-        <div class="grid two-col">
-          <label>
-            Quadrant II Priorities
-            <textarea id="q2Focus" rows="2" placeholder="Important, not urgent priorities"></textarea>
-          </label>
-          <label>
-            Weekly Reflection Prompt
-            <textarea id="reflectionPrompt" rows="2" placeholder="How will you stay proactive this week?"></textarea>
-          </label>
-        </div>
-        <button id="saveHabits">Save Weekly Focus</button>
-      </section>
-
-      <section class="card">
-        <h2>Weekly Tasks</h2>
-        <form id="weeklyTaskForm" class="grid three-col">
-          <label>
-            Task
-            <input id="weeklyTaskTitle" required maxlength="120" placeholder="Plan quarterly review" />
-          </label>
-          <label>
-            Day
-            <select id="weeklyTaskDay" required>
-              <option value="">Select day</option>
-              <option>Sunday</option>
-              <option>Monday</option>
-              <option>Tuesday</option>
-              <option>Wednesday</option>
-              <option>Thursday</option>
-              <option>Friday</option>
-              <option>Saturday</option>
-            </select>
-          </label>
-          <label>
-            Priority
-            <select id="weeklyTaskPriority">
-              <option>High</option>
-              <option selected>Medium</option>
-              <option>Low</option>
-            </select>
-          </label>
-          <div class="form-actions">
-            <button type="submit">Add Weekly Task</button>
-          </div>
-        </form>
-        <button id="addUnscheduled" class="secondary">Add as Unscheduled Big Rock</button>
-
-        <div id="weeklyTaskList" class="stack"></div>
-      </section>
-
-      <section class="card">
-        <h2>Daily Tasks (Synced from Weekly Plan)</h2>
-        <label>
-          Select Day
-          <select id="dailyDaySelect">
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-          </select>
-        </label>
-        <div id="dailyTaskList" class="stack"></div>
-      </section>
-
-      <section class="card">
-        <h2>Daily Schedule Events</h2>
-        <form id="eventForm" class="grid four-col">
-          <label>
-            Event
-            <input id="eventTitle" required maxlength="120" placeholder="Team sync" />
-          </label>
-          <label>
-            Day
-            <select id="eventDay" required>
-              <option>Sunday</option>
-              <option>Monday</option>
-              <option>Tuesday</option>
-              <option>Wednesday</option>
-              <option>Thursday</option>
-              <option>Friday</option>
-              <option>Saturday</option>
-            </select>
-          </label>
-          <label>
-            Start Time
-            <select id="eventStart"></select>
-          </label>
-          <label>
-            End Time
-            <select id="eventEnd"></select>
-          </label>
-          <div class="form-actions">
-            <button type="submit">Add Event</button>
-          </div>
-        </form>
-        <div id="eventWarnings" class="warnings"></div>
-        <div id="eventList" class="stack"></div>
-      </section>
-
-      <section class="card">
-        <h2>Copy for OneNote</h2>
-        <div class="grid two-col">
-          <div>
-            <button id="copyWeekly">Copy Weekly Plan</button>
-            <pre id="weeklyExport" class="export"></pre>
-          </div>
-          <div>
-            <button id="copyDaily">Copy Daily Plan</button>
-            <pre id="dailyExport" class="export"></pre>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d6f7a">
+  <link rel="manifest" href="manifest.json">
+  <title>Master Task Planner</title>
+  <style>
+    :root{--ink:#17212b;--muted:#687381;--line:#d9e0e7;--panel:#fff;--bg:#f4f7f9;--accent:#1d6f7a;--danger:#b42318;--shadow:0 12px 30px rgba(23,33,43,.08)}*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{border:1px solid var(--line);background:#fff;color:var(--ink);min-height:40px;padding:0 12px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}button:hover{border-color:#9fb0bf}.primary{background:var(--accent);border-color:var(--accent);color:#fff}.danger{color:var(--danger)}.icon{width:40px;padding:0;font-weight:800}input,select,textarea{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:6px;padding:8px 10px;min-height:40px;width:100%}textarea{resize:vertical;min-height:80px}header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.topbar{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:18px;align-items:center;padding:16px 22px}h1{margin:0;font-size:24px;line-height:1.2}.subtitle,.sync-status,.helper{color:var(--muted);font-size:12px;line-height:1.4}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.sync-status{flex-basis:100%;text-align:right}main{padding:18px 22px 28px;display:grid;gap:16px}.summary{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px}.metric{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;min-height:76px;box-shadow:var(--shadow);text-align:left;display:block;cursor:pointer}.metric.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(29,111,122,.16),var(--shadow)}.metric span{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.metric strong{font-size:24px}.workspace{display:grid;grid-template-columns:330px minmax(0,1fr);gap:16px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}.panel-header{padding:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-header h2{margin:0;font-size:16px}.form{padding:14px;display:grid;gap:11px}label{display:grid;gap:5px;color:var(--muted);font-size:12px;font-weight:650}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.filters{display:grid;grid-template-columns:minmax(180px,1.2fr) repeat(4,minmax(110px,.7fr)) auto;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}.view-toggle{display:flex;gap:5px}.content{padding:12px}.task-list{display:grid;gap:8px}.task{border:1px solid var(--line);border-left-width:5px;border-radius:8px;background:#fff;display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:10px;align-items:start}.task[data-quadrant="1"]{border-left-color:#8f1d1d}.task[data-quadrant="2"]{border-left-color:#237347}.task[data-quadrant="3"]{border-left-color:#d19a00}.task[data-quadrant="4"]{border-left-color:#6f7782}.task[data-quadrant=""]{border-left-color:var(--accent)}.task[data-status="Done"]{opacity:.75}.check{width:34px;height:34px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;background:#f9fbfc;font-weight:800}.task h3{margin:0;font-size:15px;line-height:1.35;overflow-wrap:anywhere}.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}.pill{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--muted);background:#f7f9fb;font-size:12px}.high{color:#8c1d18;border-color:#f0b9b5;background:#fff2f0}.medium{color:#7a4f00;border-color:#e7cd91;background:#fff8e7}.overdue{color:#fff;border-color:var(--danger);background:var(--danger)}.quadrant-picker{width:auto;min-width:88px;min-height:28px;padding:3px 28px 3px 8px;border-radius:999px;font-size:12px;font-weight:650;cursor:pointer}.q1{color:#fff!important;border-color:#8f1d1d!important;background:#8f1d1d!important}.q2{color:#fff!important;border-color:#237347!important;background:#237347!important}.q3{color:#3b2a00!important;border-color:#d19a00!important;background:#ffd767!important}.q4{color:#fff!important;border-color:#6f7782!important;background:#6f7782!important}.inbox{color:#0f5660!important;border-color:#8ec0c7!important;background:#e4f2f4!important}.quadrant-picker option{color:var(--ink);background:#fff}.task p{margin:8px 0 0;color:#384554;line-height:1.4;font-size:13px;overflow-wrap:anywhere}.task-actions{display:flex;gap:6px}.quadrants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.quadrant{border:1px solid var(--line);border-radius:8px;min-height:180px;overflow:hidden;background:#fbfcfd}.quadrant h3{margin:0;padding:10px 12px;border-bottom:1px solid var(--line);font-size:14px;background:#fff}.quadrant .task-list{padding:10px}.empty{border:1px dashed #b9c4cf;border-radius:8px;padding:24px;color:var(--muted);text-align:center;background:#fbfcfd}.hidden{display:none!important}dialog{border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);width:min(560px,calc(100vw - 28px));padding:0}dialog::backdrop{background:rgba(23,33,43,.32)}.modal-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;padding-top:4px}@media(max-width:1050px){.workspace{grid-template-columns:1fr}.planner{order:1}.editor{order:2}.summary{grid-template-columns:repeat(3,minmax(130px,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.topbar{grid-template-columns:1fr}.actions{justify-content:start}.sync-status{text-align:left}button,input,select,textarea{min-height:44px}main{padding:12px}.summary,.quadrants,.two{grid-template-columns:1fr}.task{grid-template-columns:36px minmax(0,1fr)}.task-actions{grid-column:2}.filters{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="app"><header><div class="topbar"><div><h1>Master Task Planner</h1><div class="subtitle">Daily planner view for quadrant, status, priority, due date, context, and notes.</div></div><div class="actions"><input id="fileInput" class="hidden" type="file" accept=".csv,text/csv"><button id="pullBtn">Pull</button><button id="pushBtn">Push</button><button id="syncBtn">Sync</button><button id="importBtn">Import</button><button id="exportBtn">Export</button><button id="resetBtn" class="danger">Reset</button><div id="syncStatus" class="sync-status">Sync not configured</div></div></div></header>
+<dialog id="syncDialog"><div class="panel-header"><h2>Sync Settings</h2><button id="syncClose" class="icon" type="button">x</button></div><form id="syncForm" class="form"><label>Sync URL<input id="syncUrl" type="url" placeholder="https://.../master-task-planner.json"></label><label>Optional sync key<input id="syncKey" type="password" placeholder="Used as X-Sync-Key when required"></label><p class="helper">Use a URL that supports GET and PUT of JSON. Click Push on the device that has your tasks, then Pull on the other device.</p><label><input id="autoSync" type="checkbox"> Auto-sync every 30 seconds while open</label><div class="modal-actions"><button id="clearSync" class="danger" type="button">Clear</button><button class="primary" type="submit">Save Settings</button></div></form></dialog>
+<main><section class="summary"><button class="metric active" data-qf="all"><span>Total tasks</span><strong id="totalCount">0</strong></button><button class="metric" data-qf="open"><span>Open</span><strong id="openCount">0</strong></button><button class="metric" data-qf="blocked"><span>Blocked</span><strong id="blockedCount">0</strong></button><button class="metric" data-qf="today"><span>Due today</span><strong id="todayCount">0</strong></button><button class="metric" data-qf="overdue"><span>Overdue</span><strong id="overdueCount">0</strong></button></section><section class="workspace"><aside class="panel editor"><div class="panel-header"><h2 id="formTitle">Add Task</h2><button id="clearForm" class="icon" type="button">+</button></div><form id="taskForm" class="form"><input id="editingId" type="hidden"><label>Task<textarea id="taskText" required placeholder="What needs attention?"></textarea></label><div class="two"><label>Task ID<input id="taskId"></label><label>Check<select id="check"><option value="-">- Not done</option><option value="?">? Needs review</option><option value="x">x Done</option></select></label></div><div class="two"><label>Quadrant<select id="quadrant"><option value="">Inbox</option><option value="1">Q1</option><option value="2">Q2</option><option value="3">Q3</option><option value="4">Q4</option></select></label><label>Status<select id="status"><option>Open</option><option>Blocked</option><option>Done</option></select></label></div><div class="two"><label>Priority<select id="priority"><option value="">None</option><option>High</option><option>Medium</option><option>Low</option></select></label><label>Due<input id="due" type="date"></label></div><label>Context<input id="context"></label><label>Notes<textarea id="notes"></textarea></label><button class="primary" type="submit">Save Task</button></form></aside><section class="panel planner"><div class="filters"><input id="search" type="search" placeholder="Search tasks, notes, context, or IDs"><select id="statusFilter"><option value="">All statuses</option><option>Open</option><option>Blocked</option><option>Done</option></select><select id="priorityFilter"><option value="">All priorities</option><option>High</option><option>Medium</option><option>Low</option></select><select id="quadrantFilter"><option value="">All quadrants</option><option value="inbox">Inbox</option><option value="1">Quadrant 1</option><option value="2">Quadrant 2</option><option value="3">Quadrant 3</option><option value="4">Quadrant 4</option></select><select id="sortMode"><option value="planner">Planner order</option><option value="due">Due date</option><option value="priority">Priority</option><option value="status">Status</option></select><div class="view-toggle"><button id="listView" class="active" type="button">List</button><button id="gridView" type="button">Grid</button></div></div><div id="content" class="content"></div></section></section></main></div>
+<script>
+const STORAGE='master-task-planner-v1', META='master-task-planner-meta-v1', SYNC='master-task-planner-sync-v1', TODAY=new Date().toLocaleDateString('en-CA');
+let tasks=loadTasks(), view='list', quick='all', sync=loadSync(), syncing=false, syncTimer=null, pushTimer=null;
+const $=id=>document.getElementById(id), els={content:$('content'),form:$('taskForm'),editingId:$('editingId'),taskText:$('taskText'),taskId:$('taskId'),check:$('check'),quadrant:$('quadrant'),status:$('status'),priority:$('priority'),due:$('due'),context:$('context'),notes:$('notes'),search:$('search'),statusFilter:$('statusFilter'),priorityFilter:$('priorityFilter'),quadrantFilter:$('quadrantFilter'),sortMode:$('sortMode'),syncStatus:$('syncStatus'),syncDialog:$('syncDialog'),syncUrl:$('syncUrl'),syncKey:$('syncKey'),autoSync:$('autoSync')};
+function loadTasks(){return JSON.parse(localStorage.getItem(STORAGE)||'[]')}function saveTasks(o={}){localStorage.setItem(STORAGE,JSON.stringify(tasks));if(o.dirty!==false){let m=loadMeta();m.localUpdatedAt=new Date().toISOString();m.dirty=true;saveMeta(m);queuePush()}syncStatus()}function loadMeta(){return JSON.parse(localStorage.getItem(META)||'{"localUpdatedAt":"","remoteUpdatedAt":"","dirty":false}')}function saveMeta(m){localStorage.setItem(META,JSON.stringify(m))}function loadSync(){return JSON.parse(localStorage.getItem(SYNC)||'{"url":"","key":"","auto":false}')}function saveSync(){localStorage.setItem(SYNC,JSON.stringify(sync));syncStatus();autoSync()}
+function parseCsv(t){let rows=[],row=[],v='',q=false;for(let i=0;i<t.length;i++){let c=t[i],n=t[i+1];if(c=='"'&&q&&n=='"'){v+='"';i++}else if(c=='"')q=!q;else if(c==','&&!q){row.push(v);v=''}else if((c=='\n'||c=='\r')&&!q){if(c=='\r'&&n=='\n')i++;row.push(v);if(row.some(x=>x.trim()))rows.push(row);row=[];v=''}else v+=c}row.push(v);if(row.some(x=>x.trim()))rows.push(row);return rows}
+function parseNotes(n){let d={};n.split('|').forEach(p=>{let m=p.trim().match(/^([^:]+):\s*(.*)$/);if(m)d[m[1].trim()]=m[2].trim()});return d}function csvToTasks(t){let rows=parseCsv(t),heads=(rows.shift()||[]).map(h=>h.trim());return rows.map((r,i)=>{let rec=Object.fromEntries(heads.map((h,j)=>[h,r[j]||''])),p=parseNotes(rec.Notes||'');return{id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+i,order:i,check:rec['Check Mark']=='?'?'?':rec['Check Mark']=='x'?'x':'-',task:rec.Task||'',taskId:p['Task ID(s)']||'',quadrant:rec.Quadrant||'',context:p.Context||'',due:p.Due||'',priority:p.Priority||'',status:p.Status||'Open',notes:p.Notes||''}}).filter(t=>t.task.trim())}
+function checkText(v){return v=='x'?'✓':v=='?'?'?':'—'}function rank(v){return{High:1,Medium:2,Low:3}[v]||4}function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function filtered(){let term=els.search.value.trim().toLowerCase(),st=els.statusFilter.value,pr=els.priorityFilter.value,q=els.quadrantFilter.value;return tasks.filter(t=>{let h=[t.task,t.notes,t.context,t.taskId,t.status,t.priority].join(' ').toLowerCase();if(term&&!h.includes(term))return false;if(st&&t.status!=st)return false;if(pr&&t.priority!=pr)return false;if(q=='inbox'&&t.quadrant)return false;if(q&&q!='inbox'&&t.quadrant!=q)return false;if(quick=='open'&&t.status!='Open')return false;if(quick=='blocked'&&t.status!='Blocked')return false;if(quick=='today'&&(t.status=='Done'||t.due!=TODAY))return false;if(quick=='overdue'&&(t.status=='Done'||!t.due||t.due>=TODAY))return false;return true}).sort((a,b)=>els.sortMode.value=='due'?(a.due||'9999').localeCompare(b.due||'9999'):els.sortMode.value=='priority'?rank(a.priority)-rank(b.priority):els.sortMode.value=='status'?a.status.localeCompare(b.status):a.order-b.order)}
+function render(){metrics();let items=filtered();els.content.innerHTML='';if(view=='grid')grid(items);else{let list=document.createElement('div');list.className='task-list';items.forEach(t=>list.appendChild(card(t)));els.content.appendChild(items.length?list:empty())}}function metrics(){let active=tasks.filter(t=>t.status!='Done');$('totalCount').textContent=tasks.length;$('openCount').textContent=tasks.filter(t=>t.status=='Open').length;$('blockedCount').textContent=tasks.filter(t=>t.status=='Blocked').length;$('todayCount').textContent=active.filter(t=>t.due==TODAY).length;$('overdueCount').textContent=active.filter(t=>t.due&&t.due<TODAY).length;document.querySelectorAll('.metric').forEach(b=>b.classList.toggle('active',b.dataset.qf==quick))}
+function card(t){let a=document.createElement('article'),qc=t.quadrant?'q'+t.quadrant:'inbox',over=t.due&&t.due<TODAY&&t.status!='Done';a.className='task';a.dataset.status=t.status;a.dataset.quadrant=t.quadrant;a.innerHTML=`<button class="check">${checkText(t.check)}</button><div><h3>${esc(t.task)}</h3><div class="meta">${t.taskId?`<span class="pill">ID ${esc(t.taskId)}</span>`:''}<select class="quadrant-picker ${qc}"><option value="" ${t.quadrant==''?'selected':''}>Inbox</option><option value="1" ${t.quadrant=='1'?'selected':''}>Q1</option><option value="2" ${t.quadrant=='2'?'selected':''}>Q2</option><option value="3" ${t.quadrant=='3'?'selected':''}>Q3</option><option value="4" ${t.quadrant=='4'?'selected':''}>Q4</option></select><span class="pill">${esc(t.status)}</span>${t.priority?`<span class="pill ${t.priority.toLowerCase()}">${esc(t.priority)}</span>`:''}${t.due?`<span class="pill ${over?'overdue':''}">Due ${esc(t.due)}</span>`:''}${t.context?`<span class="pill">${esc(t.context)}</span>`:''}</div>${t.notes?`<p>${esc(t.notes)}</p>`:''}</div><div class="task-actions"><button class="icon edit">E</button><button class="icon danger delete">D</button></div>`;a.querySelector('.check').onclick=()=>toggle(t.id);a.querySelector('.quadrant-picker').onchange=e=>{t.quadrant=e.target.value;saveTasks();render()};a.querySelector('.edit').onclick=()=>fill(t);a.querySelector('.delete').onclick=()=>{if(confirm('Delete this task?')){tasks=tasks.filter(x=>x.id!=t.id);saveTasks();render()}};return a}function empty(s='No tasks match the current filters.'){let d=document.createElement('div');d.className='empty';d.textContent=s;return d}function grid(items){let wrap=document.createElement('div');wrap.className='quadrants';[['1','Quadrant 1'],['2','Quadrant 2'],['3','Quadrant 3'],['4','Quadrant 4'],['','Inbox']].forEach(([k,l])=>{let p=document.createElement('section');p.className='quadrant';p.innerHTML=`<h3>${l}</h3>`;let list=document.createElement('div');list.className='task-list';items.filter(t=>t.quadrant==k).forEach(t=>list.appendChild(card(t)));if(!list.children.length)list.appendChild(empty('No tasks here.'));p.appendChild(list);wrap.appendChild(p)});els.content.appendChild(wrap)}
+function read(){return{id:els.editingId.value||(crypto.randomUUID?crypto.randomUUID():String(Date.now())),order:els.editingId.value?tasks.find(t=>t.id==els.editingId.value).order:tasks.length,task:els.taskText.value.trim(),taskId:els.taskId.value.trim(),check:els.check.value,quadrant:els.quadrant.value,status:els.status.value,priority:els.priority.value,due:els.due.value,context:els.context.value.trim(),notes:els.notes.value.trim()}}function fill(t){$('formTitle').textContent=t?'Edit Task':'Add Task';els.editingId.value=t?t.id:'';els.taskText.value=t?t.task:'';els.taskId.value=t?t.taskId:'';els.check.value=t?t.check:'-';els.quadrant.value=t?t.quadrant:'';els.status.value=t?t.status:'Open';els.priority.value=t?t.priority:'';els.due.value=t?t.due:'';els.context.value=t?t.context:'';els.notes.value=t?t.notes:''}function toggle(id){let t=tasks.find(x=>x.id==id);if(!t)return;t.check=t.check=='-'?'?':t.check=='?'?'x':'-';t.status=t.check=='x'?'Done':t.status=='Done'?'Open':t.status;saveTasks();render()}
+function noteField(t){return[`Task ID(s): ${t.taskId}`,`Context: ${t.context}`,t.due&&`Due: ${t.due}`,t.priority&&`Priority: ${t.priority}`,`Status: ${t.status}`,t.notes&&`Notes: ${t.notes}`].filter(Boolean).join(' | ')}function csvVal(v){v=String(v||'');return/[",\r\n]/.test(v)?`"${v.replace(/"/g,'""')}"`:v}function exportCsv(){let rows=[['Quadrant','Check Mark','Task','Notes']];[...tasks].sort((a,b)=>a.order-b.order).forEach(t=>rows.push([t.quadrant,checkText(t.check),t.task,noteField(t)]));let blob=new Blob([rows.map(r=>r.map(csvVal).join(',')).join('\r\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Master Task List(Daily Planner).csv';a.click();URL.revokeObjectURL(a.href)}
+function syncStatus(msg){if(msg){els.syncStatus.textContent=msg;return}let m=loadMeta();els.syncStatus.textContent=!sync.url?'Sync not configured':m.dirty?'Local changes not pushed':m.remoteUpdatedAt?'Synced '+new Date(m.remoteUpdatedAt).toLocaleString():sync.auto?'Sync ready, auto on':'Sync ready'}function headers(){let h={'Content-Type':'application/json'};if(sync.key)h['X-Sync-Key']=sync.key;return h}function payload(){return{app:'master-task-planner',version:1,updatedAt:new Date().toISOString(),tasks}}function norm(p){if(Array.isArray(p))return{tasks:p,updatedAt:''};if(p&&Array.isArray(p.tasks))return p;throw Error('Sync data did not include a tasks array.')}async function pull(force=false){if(!sync.url)return openSync();if(syncing)return;syncing=true;syncStatus('Pulling...');try{let r=await fetch(sync.url,{headers:sync.key?{'X-Sync-Key':sync.key}:{}});if(!r.ok)throw Error('Pull failed: '+r.status);let txt=await r.text();if(!txt||txt=='null'){syncStatus('No cloud tasks yet. Use Push.');return}let remote=norm(JSON.parse(txt)),m=loadMeta();if(m.dirty&&!force&&!confirm('Replace local unsynced changes with cloud tasks?')){syncStatus();return}tasks=remote.tasks;localStorage.setItem(STORAGE,JSON.stringify(tasks));saveMeta({localUpdatedAt:remote.updatedAt||new Date().toISOString(),remoteUpdatedAt:remote.updatedAt||'',dirty:false});fill();render();syncStatus('Pulled latest tasks.')}catch(e){syncStatus(e.message||'Pull failed.')}finally{syncing=false}}async function push(){if(!sync.url)return openSync();if(syncing)return;syncing=true;syncStatus('Pushing...');try{let p=payload(),r=await fetch(sync.url,{method:'PUT',headers:headers(),body:JSON.stringify(p)});if(!r.ok)throw Error('Push failed: '+r.status);saveMeta({localUpdatedAt:p.updatedAt,remoteUpdatedAt:p.updatedAt,dirty:false});syncStatus('Pushed latest tasks.')}catch(e){syncStatus(e.message||'Push failed.')}finally{syncing=false}}function queuePush(){if(!sync.auto||!sync.url)return;clearTimeout(pushTimer);pushTimer=setTimeout(push,1200)}function autoSync(){clearInterval(syncTimer);if(sync.auto&&sync.url)syncTimer=setInterval(()=>loadMeta().dirty?push():pull(true),30000)}function openSync(){els.syncUrl.value=sync.url||'';els.syncKey.value=sync.key||'';els.autoSync.checked=!!sync.auto;els.syncDialog.showModal?els.syncDialog.showModal():els.syncDialog.setAttribute('open','')}
+els.form.onsubmit=e=>{e.preventDefault();let n=read();if(!n.task)return;let i=tasks.findIndex(t=>t.id==n.id);if(i>=0)tasks[i]=n;else tasks.push(n);fill();saveTasks();render()};$('clearForm').onclick=()=>fill();$('importBtn').onclick=()=>$('fileInput').click();$('exportBtn').onclick=exportCsv;$('resetBtn').onclick=()=>{if(confirm('Clear local tasks?')){tasks=[];saveTasks();fill();render()}};$('fileInput').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{tasks=csvToTasks(r.result);saveTasks();fill();render();e.target.value=''};r.readAsText(f,'windows-1252')};$('syncBtn').onclick=openSync;$('pullBtn').onclick=()=>pull();$('pushBtn').onclick=push;$('syncClose').onclick=()=>els.syncDialog.close();$('clearSync').onclick=()=>{sync={url:'',key:'',auto:false};localStorage.removeItem(SYNC);autoSync();syncStatus();els.syncDialog.close()};$('syncForm').onsubmit=e=>{e.preventDefault();sync={url:els.syncUrl.value.trim(),key:els.syncKey.value,auto:els.autoSync.checked};saveSync();els.syncDialog.close()};[els.search,els.statusFilter,els.priorityFilter,els.quadrantFilter,els.sortMode].forEach(el=>{el.oninput=el.onchange=()=>{quick='all';render()}});document.querySelectorAll('.metric').forEach(b=>b.onclick=()=>{quick=b.dataset.qf;els.search.value='';els.priorityFilter.value='';els.quadrantFilter.value='';els.statusFilter.value=quick=='open'?'Open':quick=='blocked'?'Blocked':'';render()});$('listView').onclick=()=>{view='list';$('listView').classList.add('active');$('gridView').classList.remove('active');render()};$('gridView').onclick=()=>{view='grid';$('gridView').classList.add('active');$('listView').classList.remove('active');render()};render();syncStatus();autoSync();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+</script>
+</body>
 </html>
