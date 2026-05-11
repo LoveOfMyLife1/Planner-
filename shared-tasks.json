@@ -1,0 +1,137 @@
+{
+  "savedAt": "2026-05-10T19:29:46.280Z",
+  "tasks": [
+    {
+      "id": "60eb22e9-c782-41bd-9feb-e36130c1a34c",
+      "title": "Follow up on Debugging the Devotional course.",
+      "role": "Mission.",
+      "dueDate": "2026-05-16",
+      "quadrant": "1",
+      "status": "not-started",
+      "notes": "This task came out of several people having difficulty getting into the devotional/orientation. I’m not sure why the troubleshooting ended up on my plate, but I’ll check in with Elder Curtis about it.",
+      "done": false,
+      "createdAt": 1778341661426,
+      "updatedAt": 1778341741136
+    },
+    {
+      "id": "4aa00ec5-7442-4e08-8bb7-8542950ea56b",
+      "title": "follow up service project",
+      "role": "EG Service",
+      "dueDate": "2026-05-16",
+      "quadrant": "1",
+      "status": "in-progress",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778292131895,
+      "updatedAt": 1778340511039
+    },
+    {
+      "id": "b2c63145-dce2-4bff-8346-7446e5dfb7e5",
+      "title": "upload smms with elder pramis",
+      "role": "mission",
+      "dueDate": "2026-05-16",
+      "quadrant": "1",
+      "status": "in-progress",
+      "notes": "I sent a message to Elder Curtis asking about the status of the state specialist course. Pending feedback from him, we may need to upload that together as well. It would be good practice for Elder premis.",
+      "done": false,
+      "createdAt": 1778292019071,
+      "updatedAt": 1778340338915
+    },
+    {
+      "id": "9beea173-5c16-4e80-87f7-2e25925a5973",
+      "title": "Consider whether to respond to Rhett Dabling's spreadsheet/dashboard request.",
+      "role": "",
+      "dueDate": "2026-05-16",
+      "quadrant": "1",
+      "status": "in-progress",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255785113,
+      "updatedAt": 1778340341650
+    },
+    {
+      "id": "b57cd0c7-90c5-4147-bb38-0b121febadd4",
+      "title": "Follow up on Missionary stories request from Sister Perez.",
+      "role": "Mission",
+      "dueDate": "2026-05-23",
+      "quadrant": "2",
+      "status": "not-started",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255770680,
+      "updatedAt": 1778255770680
+    },
+    {
+      "id": "e348ef65-a2e2-4ea1-ab07-dc181c9d86cd",
+      "title": "Reconnect with Elder Ungricht.",
+      "role": "Mission",
+      "dueDate": "2026-05-16",
+      "quadrant": "2",
+      "status": "in-progress",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255745541,
+      "updatedAt": 1778340526672
+    },
+    {
+      "id": "426bffd0-24ec-4ef1-b348-e391bc69e68f",
+      "title": "Follow up on SMMS translation.",
+      "role": "Mision",
+      "dueDate": "2026-05-16",
+      "quadrant": "2",
+      "status": "not-started",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255723803,
+      "updatedAt": 1778255723803
+    },
+    {
+      "id": "1e4583f5-1c50-4c4b-88b6-513987bd5d32",
+      "title": "Follow up on PAC Tool publishing.",
+      "role": "Mission",
+      "dueDate": "2026-05-16",
+      "quadrant": "2",
+      "status": "not-started",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255704920,
+      "updatedAt": 1778255704920
+    },
+    {
+      "id": "99b1acfd-fe5d-4460-8f2a-be7ecd893072",
+      "title": "Follow up on SMMS publishing.",
+      "role": "Mission",
+      "dueDate": "2026-05-16",
+      "quadrant": "2",
+      "status": "not-started",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255677806,
+      "updatedAt": 1778255677806
+    },
+    {
+      "id": "bc4bd898-2d03-4052-a4a6-66c454166e4c",
+      "title": "Follow up on SMMS video / PSD readiness.",
+      "role": "Mission",
+      "dueDate": "2026-05-16",
+      "quadrant": "2",
+      "status": "not-started",
+      "notes": "",
+      "done": false,
+      "createdAt": 1778255654304,
+      "updatedAt": 1778276395931
+    },
+    {
+      "id": "371a6aba-fbd3-45b4-8d11-9f57b9ff3e5c",
+      "title": "Follow up on Stake Specialist PPT translation.",
+      "role": "Mission",
+      "dueDate": "2026-05-15",
+      "quadrant": "2",
+      "status": "in-progress",
+      "notes": "5/9/26 responded to the email to Elder Curtis, copied Sister Hunsaker and Elder Raleigh asking for clarification.",
+      "done": false,
+      "createdAt": 1778255564048,
+      "updatedAt": 1778341681024
+    }
+  ]
+}
